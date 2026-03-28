@@ -6,7 +6,8 @@ import { ArrowDown } from "lucide-react";
 import { useLang } from "@/components/LangContext";
 import { t } from "@/data/translations";
 
-const fullName = "Cyprian Ratynski";
+const firstName = "Cyprian";
+const lastName = "Ratynski";
 
 const roles = [
   { role: "Air Traffic Trainee", at: "PANSA" },
@@ -28,12 +29,14 @@ export function HeroSection() {
   const [doneTyping, setDoneTyping] = useState(false);
   const { lang } = useLang();
 
+  const fullLength = firstName.length + lastName.length;
+
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
       i++;
-      setDisplayed(fullName.slice(0, i));
-      if (i >= fullName.length) {
+      setDisplayed((firstName + lastName).slice(0, i));
+      if (i >= fullLength) {
         clearInterval(interval);
         setDoneTyping(true);
       }
@@ -66,8 +69,14 @@ export function HeroSection() {
             </p>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              {displayed}
-              <span className="animate-blink text-green-500">_</span>
+              <span className="block">
+                {displayed.slice(0, firstName.length)}
+                {displayed.length <= firstName.length && <span className="animate-blink text-green-500">_</span>}
+              </span>
+              <span className="block">
+                {displayed.slice(firstName.length)}
+                {displayed.length > firstName.length && <span className="animate-blink text-green-500">_</span>}
+              </span>
             </h1>
 
             {doneTyping && (
