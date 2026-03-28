@@ -50,11 +50,13 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/Cypreean/miejscownik-extension",
   },
   {
-    id: "new-project",
-    name: "NEW PROJECT",
-    description: "",
-    tech: [],
-    comingSoon: true,
+    id: "stanelo-pl",
+    name: "STANELO.PL",
+    description:
+      "Real-time local incident and event map for Poland. Aggregates news from major Polish media outlets, classifies and geocodes incidents, and displays them on an interactive map with filtering and community reporting.",
+    tech: ["Vite", "Leaflet", "Supabase", "Vercel", "Gemini API"],
+    sourceUrl: "https://github.com/Cypreean/stanelo",
+    demoUrl: "https://stanelo.pl",
   },
 ];
 
